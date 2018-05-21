@@ -2,12 +2,15 @@ pipeline{
   agent {
       label "jenkins-maven"
     }
-  stage('Checkout') {
-        scm checkout
-    }
+  stages{
+    stage('Checkout') {
+            scm checkout
+        }
 
-    stage ('Build'){
-      sh "./gradlew -Pversion=${version} build"
-    }
+        stage ('Build'){
+          sh "./gradlew -Pversion=${version} build"
+        }
+  }
+ 
 
 }
